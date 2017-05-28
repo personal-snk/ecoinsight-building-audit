@@ -1,0 +1,66 @@
+<div class="albumDetail">
+	<div class="container">
+	    <h1>Add</h1>
+	  	<hr>
+		<div class="row">
+	      <div class="col-md-9 personal-info">
+	        <h3>Building info</h3>
+	        
+	        <form class="form-horizontal" role="form" name="addForm" ng-submit="submitForm()" novalidate>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">Building name:</label>
+	            <div class="col-lg-8">
+	              <input class="form-control" type="text" name="name" ng-model="location.name" required>
+	              <p ng-show="addForm.name.$invalid && !addForm.name.$pristine" class="help-block">Building name is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">Building Address:</label>
+	            <div class="col-lg-8">
+	              <address required>
+					{{location.address}}
+				  </address>
+				  <p ng-show="addForm.address.$invalid && !addForm.address.$pristine" class="help-block">Building Address is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">City Located:</label>
+	            <div class="col-lg-8">
+	              <input class="form-control" type="text" name="city" ng-model="location.city" required>
+	              <p ng-show="addForm.city.$invalid && !addForm.city.$pristine" class="help-block">Building city is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">Build Year:</label>
+	            <div class="col-lg-8">
+	              <input class="form-control" type="number" name="year" ng-model="location.year" required>
+	              <p ng-show="addForm.year.$invalid && !addForm.year.$pristine" class="help-block">Building Year is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3 control-label">Building Type:</label>
+	            <div class="col-md-8">
+	              <input class="form-control" type="text" name="type" ng-model="location.type" required>
+	              <p ng-show="addForm.type.$invalid && !addForm.type.$pristine" class="help-block">Building category is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3 control-label">Number of floors:</label>
+	            <div class="col-md-8">
+	              <input class="form-control" type="number" name="num_floors" ng-model="location.num_of_floors" required>
+	              <p ng-show="addForm.num_floors.$invalid && !addForm.num_floors.$pristine" class="help-block">Number of Floors is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3 control-label"></label>
+	            <div class="col-md-8">
+	              <button type="submit" class="btn btn-primary" ng-disabled="addForm.$invalid" ng-click="addNewBuilding(location)">Add Building</button>
+	              <span></span>
+	              <a href="#/"><input type="reset" class="btn btn-default" value="Cancel"></a>
+	            </div>
+	          </div>
+	        </form>
+	      </div>
+	  </div>
+	</div>
+</div>

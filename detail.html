@@ -1,0 +1,90 @@
+<div class="nav">
+  <a href="#/">Back to Building List</a>
+</div>
+
+<div class="albumDetail" ng-repeat="location in locations | filter: {code: thisAlbum}">
+	<div class="container">
+	    <h1>Edit</h1>
+	  	<hr>
+		<div class="row">
+	      <!-- left column -->
+	      <div class="col-md-3">
+	        <div class="text-center">
+	          <!-- <img src="//placehold.it/100" class="avatar img-circle" alt="avatar"> -->
+	          <div class="">
+	        	<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ng-src="{{location.mapLocation | trustThisUrl}}"></iframe>
+	    	  </div>
+	        </div>
+	      </div>
+	      
+	      <!-- edit form column -->
+	      <div class="col-md-9 personal-info">
+	        <h3>Building info</h3>
+	        
+	        <form class="form-horizontal" role="form" name="userForm" ng-submit="submitForm()" novalidate>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">Building name:</label>
+	            <div class="col-lg-8">
+	              <input class="form-control" type="text" name="name" ng-model="location.name" required>
+	              <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Building name is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">Building Address:</label>
+	            <div class="col-lg-8">
+	              <address required>
+					{{location.address}}
+				  </address>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">City Located:</label>
+	            <div class="col-lg-8">
+	              <input class="form-control" type="text" name="city" ng-model="location.city" required>
+	              <p ng-show="userForm.city.$invalid && !userForm.city.$pristine" class="help-block">Building city is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-lg-3 control-label">Build Year:</label>
+	            <div class="col-lg-8">
+	              <input class="form-control" type="number" name="year" ng-model="location.year" required>
+	              <p ng-show="userForm.year.$invalid && !userForm.year.$pristine" class="help-block">Building year is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3 control-label">Building Type:</label>
+	            <div class="col-md-8">
+	              <input class="form-control" type="text" name="type" ng-model="location.type" required>
+	              <p ng-show="userForm.type.$invalid && !userForm.type.$pristine" class="help-block">Building category is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3 control-label">Number of floors:</label>
+	            <div class="col-md-8">
+	              <input class="form-control" type="number" name="num_floors" ng-model="location.num_of_floors" required>
+	              <p ng-show="userForm.num_floors.$invalid && !userForm.num_floors.$pristine" class="help-block">Building category is required.</p>
+	            </div>
+	          </div>
+	          <div class="form-group">
+	            <label class="col-md-3 control-label"></label>
+	            <div class="col-md-8">
+	              <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="saveChanges(locations)">Save Changes</button>
+	              <span></span>
+	              <a href="#/"><input type="reset" class="btn btn-default" value="Cancel"></a>
+	            </div>
+	          </div>
+	        </form>
+	      </div>
+	  </div>
+
+<!-- 	  <div class="col-sm-4 album list-group" dir-paginate="floor in location.num_of_floors | filter:filter | itemsPerPage: 9">
+		ng-style="{'background-image':'url({{location.img_src}})'}"
+	    <div class="background-image" >
+	      <a href="#/buildings/{{location.code}}/{{floor.num}}"></a>
+	    </div> 
+
+  	</div>  -->
+
+	</div>
+</div>
+<hr>
